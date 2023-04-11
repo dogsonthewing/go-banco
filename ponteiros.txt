@@ -1,0 +1,49 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var idade int
+	var p *int
+
+	p = &idade
+	fmt.Println(&p)
+	p = dobro(p)
+	fmt.Println(*p)
+}
+
+func dobro(v *int) *int {
+	fmt.Println(&v)
+	*v = *v * 2
+
+	return v
+}
+
+//nesse caso ambos os ponteiros apontam para a mesma variavel apesar se serem ponteiros diferentes
+
+func main() {
+	contaDaLua := ContaCorrente{titular: "Lua", saldo: 42000.75} //Dessa forma é possível preencher apenas algumas variáveis da estrutura
+	contaDoPaulo := ContaCorrente{"Paulo", 666, 123456, 152.20}  //Dessa forma é necessário declarar TODAS as variáveis na ordem da estrutura
+
+	fmt.Println(contaDaLua)
+	fmt.Println(contaDoPaulo)
+
+	var contaDaCelia *ContaCorrente
+	contaDaCelia = new(ContaCorrePrintln()
+	contaDaCelia.titular = "Celia"
+	contaDaCelia.saldo = 1523.12
+
+	var contaDaCelia2 *ContaCorrente
+	contaDaCelia2 = new(ContaCorrente)
+	contaDaCelia2.titular = "Celia"
+	contaDaCelia2.saldo = 1523.12
+
+	fmt.Println(reflect.TypeOf(contaDaCelia))
+	fmt.Println(*&contaDaCelia.saldo)
+	fmt.Println(*contaDaCelia)        // aponta os valores das variáveis do conta
+	fmt.Println(&contaDaCelia)        // aponta endereço do conta
+	fmt.Println(*&contaDaCelia.saldo) //aponta o valor da variável dentro do conta
+	fmt.Println(&contaDaCelia.saldo)  //aponta o endereço da variável dentro do conta (possui um endereço diferente do conta)
+}
